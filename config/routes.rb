@@ -2,7 +2,7 @@ AndrewIG::Application.routes.draw do
 
   get "facebook/facebook"
   get "facebook/posts"
-  get '/' => 'home#index'
+  get '/' => 'home#index', as: :root
   get '/instagram' => 'instagram#instagram'
   get '/instagram/feed' => 'instagram#feed', as: :feed
   post '/instagram/search' => 'instagram#search', as: :search
@@ -13,9 +13,11 @@ AndrewIG::Application.routes.draw do
   get '/github' => 'github#github'
   get '/github/repos' => 'github#repos', as: :repos
 
+  # Or trade this out with the facebook action
+  # Used to go to the koala path
   get '/facebook' => 'facebook#facebook', as: :facebook
   get '/facebook/posts' => 'facebook#posts', as: :posts
-  get '/facebook/gfy' => 'facebook#gfy'
+  get '/facebook/log_out' => 'facebook#log_out', as: :fb_logout
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

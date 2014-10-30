@@ -1,0 +1,15 @@
+<% @albums.each do |a| %>
+	a.id 
+	a.Key
+	a.Title
+	
+	@images = HTTParty.get("http://api.smugmug.com/services/api/json/1.3.0/?method=smugmug.images.get&APIKey=G74NPxhieE70QY5IV2i9QYeGaoU2EyLe&AlbumID=", "a.id", "&AlbumKey=", "a.Key")
+
+	<% @images.each do |a, i| %>
+		i.id
+		i.Key
+
+		@imageURLs = HTTParty.get("http://api.smugmug.com/services/api/json/1.3.0/?method=smugmug.images.getURLs&APIKey=G74NPxhieE70QY5IV2i9QYeGaoU2EyLe&AlbumID=", "a.id", "&AlbumKey=", "a.Key", "&ImageID=", "i.id", &ImageKey=", "i.Key")
+
+	<% @imageURLs.each do |l| %>
+<%= image_tag l.OriginalURL %>

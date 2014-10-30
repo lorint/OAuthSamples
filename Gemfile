@@ -10,6 +10,8 @@ gem 'pg'
 gem 'httparty'
 # Let's use for soundcloud their real gem, even though it's kinda silly in places!
 gem 'soundcloud'
+# Facebook authentication
+gem "koala", "~> 1.10.0rc"
 
 # And what the heck, for grins let's also read in some PDF info
 gem 'pdf-reader'

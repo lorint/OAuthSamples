@@ -1,6 +1,14 @@
 <a href="https://api.instagram.com/oauth/authorize/?client_id=<%= ENV["IG_CLIENT_ID"] %>&redirect_uri=http://localhost:3000/instagram&response_type=code">Log into Instagram</a>
 <br />
-<%= link_to "Log into FB", facebook_path %><br />
+<% if session[:fb_acc_token] %>
+	<%= link_to "Log out of FB", fb_logout_path %>
+<% else %>
+	<%= link_to "Log into FB", "https://www.facebook.com/dialog/oauth?client_id=#{ENV["FB_CLIENT_ID"]}&redirect_uri=http://localhost:3000/facebook/posts&" +
+		# You can ask for various permissions:
+		"scope=public_profile,email,user_friends" %>
+<% end %>
+<br />
+
 <br />
 <%= link_to "Log into SoundCloud", sc1_path %><br />
 <br />
